@@ -1,0 +1,135 @@
+/* src/components/Header.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Space+Grotesk:wght@500&display=swap');
+
+.header {
+  background-color: #ffffff;
+  color: #102542;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  font-family: 'Poppins', sans-serif;
+  border-bottom: 4px solid #F87060;
+  box-shadow: 0 2px 8px rgba(16, 37, 66, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #102542;
+  background: linear-gradient(to right, #F87060, #102542);
+-webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.nav {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #102542;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #F87060;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover {
+  color: #F87060;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.profile input {
+  padding: 8px 12px;
+  border: 2px solid #102542;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile input:focus {
+  outline: none;
+  border-color: #F87060;
+  box-shadow: 0 0 0 3px rgba(248, 112, 96, 0.2);
+}
+
+.profile a {
+  padding: 8px 14px;
+  background-color: #F87060;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.profile a:hover {
+  background-color: #d6554d;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 15px;
+  }
+
+  .profile {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+  }
+
+  .profile input {
+    width: 100%;
+  }
+
+  .profile a {
+    width: 100%;
+    text-align: center;
+  }
+}
