@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/Header'
 import Hero from './components/Hero'
+import Featured from './components/Featured'
+import Footer from './components/Footer'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,6 +14,8 @@ function App() {
     <>
     <Navbar/>
     <Hero/>
+    <Featured/>
+    <Footer/>
     </>
   )
 }
