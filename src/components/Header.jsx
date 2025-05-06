@@ -5,18 +5,18 @@ import "./Header.css";
 const Header = () => {
   return (
     <header className="header"> 
-     <div className="logo">DripSole</div>
-     
-      <nav className="nav explore">
+      <div className="logo">DripSole</div>
+
+      <nav className="nav">
         <a href="#">Home</a>
         <a href="#">Explore</a>
         <a href="#">Support</a>
       </nav>
-     
+
       <div className="profile">
-        <input type="text" placeholder="Search..." />
-        <a href="#">Cart</a>
-        <a href="#">Profile</a>
+        <input type="text" placeholder="Search kicks..." />
+        <a href="#">🛒</a>
+        <a href="#">👤</a>
       </div>
     </header>
   );

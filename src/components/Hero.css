@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Space+Grotesk:wght@500&display=swap');
 
 .hero {
-  background-image: url('https://images.unsplash.com/photo-1600180758890-6d22b2f79e2e'); /* Replace with your own if needed */
+  background-image: url('https://media1.tenor.com/m/OlvlnXJxLOoAAAAC/251-marques-brownlee.gif'); /* Replace with your own if needed */
   background-size: cover;
   background-position: center;
   height: 90vh;
@@ -14,7 +14,7 @@
 }
 
 .hero-overlay {
-  background-color: rgba(16, 37, 66, 0.6); /* Deep navy overlay */
+  background-color: rgba(35, 41, 49, 0.6); /* Deep navy overlay */
   width: 100%;
   height: 100%;
   display: flex;
