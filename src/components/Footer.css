@@ -18,10 +18,10 @@
     font-family: 'Space Grotesk', sans-serif;
     font-size: 2rem;
     background: linear-gradient(90deg, #F87060, #ffffff);
-    background-clip: text; /* For Firefox */
-    -webkit-background-clip: text; /* For Safari and Chrome */
+    background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: inline-block; /* Ensures gradient applies correctly */
+    display: inline-block; 
   }
   
   .footer-brand p {

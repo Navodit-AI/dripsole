@@ -7,13 +7,13 @@
   .featured h2 {
     font-size: 2rem;
     color: #102542;
-    margin-bottom: 30px; /* Increased spacing */
+    margin-bottom: 30px;
   }
   
   .shoe-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Spread across */
+    justify-content: space-between;
     gap: 20px;
   }
   
@@ -23,7 +23,7 @@
     border-radius: 16px;
     padding: 16px;
     text-align: center;
-    width: calc(20% - 16px); /* 5 cards per row with spacing */
+    width: calc(20% - 16px); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
   }
@@ -51,7 +51,7 @@
     font-weight: 600;
   }
   
-  /* Remove scrollbar (since we no longer scroll) */
+
   .shoe-row::-webkit-scrollbar {
     display: none;
   }

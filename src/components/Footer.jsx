@@ -1,4 +1,4 @@
-// src/components/Footer.jsx
+
 import React from "react";
 import "./Footer.css";
 
@@ -35,7 +35,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} DripSole. All rights reserved.</p>
+        <p>© 2025 DripSole. All rights reserved.</p>
       </div>
     </footer>
   );
