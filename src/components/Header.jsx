@@ -1,5 +1,5 @@
-
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -8,15 +8,15 @@ const Header = () => {
       <div className="logo">DripSole</div>
 
       <nav className="nav">
-        <a href="#">Home</a>
-        <a href="#">Explore</a>
-        <a href="#">Support</a>
+        <Link to="/">Home</Link>
+        <Link to="/explore">Explore</Link>
+        <Link to="#">Support</Link>
       </nav>
 
       <div className="profile">
         <input type="text" placeholder="Search kicks..." />
-        <a href="#">🛒</a>
-        <a href="#">👤</a>
+        <Link to="#">🛒</Link>
+        <Link to="#">👤</Link>
       </div>
     </header>
   );
