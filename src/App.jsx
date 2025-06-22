@@ -7,7 +7,8 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Featured from './components/Featured'
 import Footer from './components/Footer'
-import Explore from './components/Explore'
+
+import ExplorePage from './components/Explorepage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,7 +23,7 @@ function App() {
             <Featured/>
           </>
         }/>
-        <Route path="/explore" element={<Explore/>}/>
+        <Route path="/explore" element={<ExplorePage/>}/>
       </Routes>
       <Footer/>
     </Router>
