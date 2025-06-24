@@ -148,3 +148,40 @@
 .product-info {
   background-color: white;
 }
+
+/* THEME BUTTONS */
+.button {
+  background-color: #F87060;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #d95b4f;
+  transform: translateY(-2px);
+}
+
+.button-outline {
+  background-color: transparent;
+  color: #F87060;
+  border: 2px solid #F87060;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-outline:hover {
+  background-color: #F87060;
+  color: white;
+}
