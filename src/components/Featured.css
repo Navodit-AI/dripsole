@@ -1,58 +1,73 @@
 .featured {
-    padding: 40px 30px;
-    background-color: #fdfdfd;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .featured h2 {
-    font-size: 2rem;
-    color: #102542;
-    margin-bottom: 30px;
-  }
-  
-  .shoe-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  
-  .shoe-card {
-    background-color: #ffffff;
-    border: 2px solid #F87060;
-    border-radius: 16px;
-    padding: 16px;
-    text-align: center;
-    width: calc(20% - 16px); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .shoe-card:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 8px 16px rgba(248, 112, 96, 0.2);
-  }
-  
-  .shoe-card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 12px;
-  }
-  
-  .shoe-card h3 {
-    font-size: 1.1rem;
-    color: #102542;
-    margin-bottom: 4px;
-  }
-  
-  .shoe-card p {
-    font-size: 0.95rem;
-    color: #F87060;
-    font-weight: 600;
-  }
-  
+  padding: 40px 30px;
+  background-color: #fdfdfd;
+  font-family: 'Poppins', sans-serif;
+}
 
-  .shoe-row::-webkit-scrollbar {
-    display: none;
+.featured h2 {
+  font-size: 2rem;
+  color: #102542;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.shoe-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.shoe-card {
+  flex: 1 1 calc(25% - 20px);
+  max-width: 260px;
+  min-width: 220px;
+  background-color: #ffffff;
+  border: 2px solid #F87060;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.shoe-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 16px rgba(248, 112, 96, 0.2);
+}
+
+.shoe-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+.shoe-card h3 {
+  font-size: 1.1rem;
+  color: #102542;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.shoe-card p {
+  font-size: 0.95rem;
+  color: #F87060;
+  font-weight: 600;
+}
+
+.shoe-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .shoe-card {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
-  
+
+  .featured h2 {
+    text-align: center;
+  }
+}

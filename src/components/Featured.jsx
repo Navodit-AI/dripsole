@@ -1,4 +1,3 @@
-
 import React from "react";
 import "./Featured.css";
 
@@ -11,7 +10,7 @@ const featuredShoes = [
   {
     name: "Yeezy Boost 350",
     price: "$220",
-    image: "https://www.forstepstyle.com/wp-content/uploads/2021/07/Yeezy-Boost-350-V2-Yecheil-Non-Reflective-300x300.png"
+    image: "https://hypefly.co.in/_next/image?url=https%3A%2F%2Fdjm0962033frr.cloudfront.net%2F1059342_01_jpg_646bf92710.webp&w=3840&q=75"
   },
   {
     name: "Nike Dunk Low",
@@ -32,9 +31,9 @@ const Featured = () => {
       <div className="shoe-row">
         {featuredShoes.map((shoe, index) => (
           <div className="shoe-card" key={index}>
-            <img src={shoe.image} alt={shoe.name} />
-            <h3>{shoe.name}</h3>
-            <p>{shoe.price}</p>
+            <img src={shoe.image} alt={shoe.name} className="shoe-img" />
+            <h3 className="shoe-name">{shoe.name}</h3>
+            <p className="shoe-price">{shoe.price}</p>
           </div>
         ))}
       </div>
