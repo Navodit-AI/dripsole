@@ -115,11 +115,6 @@ const ExplorePage = () => {
           </div>
         )}
       </div>
-
-      {/* Footer */}
-      <footer>
-        <p>© 2023 Sneaker Explorer. All rights reserved.</p>
-      </footer>
     </div>
   );
 };
