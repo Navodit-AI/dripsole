@@ -1,25 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Rubik+Glitch&family=Syne:wght@400..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Space+Grotesk:wght@500&display=swap');
 
+/* ---------------------- HEADER ---------------------- */
 .header {
-  background-color: #fff;
-  color: #102542;
+  background-color: rgba(16, 37, 66, 0.95); /* Deep navy with opacity */
+  backdrop-filter: blur(8px);
+  color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 18px 40px;
   font-family: 'Poppins', sans-serif;
   border-bottom: 3px solid #F87060;
-  box-shadow: 0 4px 12px rgba(16, 37, 66, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
+/* ---------------------- LOGO ---------------------- */
 .logo {
   font-family: 'Rubik Glitch', cursive;
   font-size: 2.8rem;
-  font-weight: 200;
+  font-weight: 600;
   display: inline-block;
-  background: linear-gradient(90deg, #F87060, #102542);
+  background: linear-gradient(90deg, #FF6A00, #FF3366);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -31,6 +37,7 @@
   transform: rotate(-2deg) scale(1.05);
 }
 
+/* ---------------------- NAVIGATION ---------------------- */
 .nav {
   display: flex;
   gap: 24px;
@@ -39,7 +46,7 @@
 
 .nav a {
   text-decoration: none;
-  color: #102542;
+  color: #fff; /* Changed from dark blue to white */
   position: relative;
   transition: color 0.3s ease;
 }
@@ -63,6 +70,7 @@
   width: 100%;
 }
 
+/* ---------------------- PROFILE / SEARCH / ICONS ---------------------- */
 .profile {
   display: flex;
   align-items: center;
@@ -72,23 +80,29 @@
 
 .profile input {
   padding: 8px 12px;
-  border: 2px solid #102542;
+  border: 2px solid #ffffff;
+  background-color: #102542;
+  color: white;
   border-radius: 8px;
   font-size: 0.95rem;
   transition: all 0.3s ease;
 }
 
+.profile input::placeholder {
+  color: #ccc;
+}
+
 .profile input:focus {
   outline: none;
   border-color: #F87060;
-  box-shadow: 0 0 0 3px rgba(248, 112, 96, 0.2);
+  box-shadow: 0 0 0 3px rgba(248, 112, 96, 0.3);
 }
 
 .profile a {
   font-size: 1.2rem;
   text-decoration: none;
-  color: #102542;
-  transition: transform 0.2s ease;
+  color: #ffffff;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .profile a:hover {
@@ -96,6 +110,7 @@
   transform: scale(1.2);
 }
 
+/* ---------------------- RESPONSIVE ---------------------- */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -120,7 +135,7 @@
   }
 }
 
-/* Products Grid */
+/* ---------------------- PRODUCTS GRID (EXTRA) ---------------------- */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -149,7 +164,7 @@
   background-color: white;
 }
 
-/* THEME BUTTONS */
+/* ---------------------- THEME BUTTONS ---------------------- */
 .button {
   background-color: #F87060;
   color: white;
