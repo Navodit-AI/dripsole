@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './ExplorePage.css';
+import { Link } from "react-router-dom";
 
 const ExplorePage = () => {
   const [products, setProducts] = useState([]);
@@ -37,7 +38,6 @@ const ExplorePage = () => {
     );
   };
 
-  // 🔍 Filter products based on search query
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     product.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -72,7 +72,7 @@ const ExplorePage = () => {
           <div className="product-count">{filteredProducts.length} items</div>
         </div>
 
-        {/* 🔎 Search Bar */}
+        {/* Search */}
         <div className="search-bar-wrapper">
           <input
             type="text"
@@ -88,45 +88,48 @@ const ExplorePage = () => {
         ) : (
           <div className="product-grid">
             {filteredProducts.map(product => (
-              <div
-                className={`product-card ${!product.inStock ? 'out-of-stock' : ''}`}
+              <Link
+                to={`/product/${product.id}`}
+                className={`product-card-link ${!product.inStock ? 'out-of-stock' : ''}`}
                 key={product.id}
               >
-                <div className={`stock-badge ${product.inStock ? 'in-stock' : 'out-of-stock'}`}>
-                  {product.inStock ? 'In Stock' : 'Out of Stock'}
-                </div>
-                <div className="product-image">
-                  <img src={product.image} alt={product.name} />
-                </div>
-                <div className="product-info">
-                  <div className="product-category">{product.category}</div>
-                  <h3 className="product-name">{product.name}</h3>
-                  <div className="product-brand">
-                    <span className="brand-highlight">{product.brand}</span>
+                <div className="product-card">
+                  <div className={`stock-badge ${product.inStock ? 'in-stock' : 'out-of-stock'}`}>
+                    {product.inStock ? 'In Stock' : 'Out of Stock'}
                   </div>
-                  <div className="price-rating">
-                    <div className="product-price">${product.price}</div>
-                    <div className="product-rating">
-                      <span className="rating-value">{product.rating}</span>
-                      {renderRating(product.rating)}
-                    </div>
+                  <div className="product-image">
+                    <img src={product.image} alt={product.name} />
                   </div>
-                  <div className="product-details">
-                    <div className="detail-item">
-                      <span className="detail-label">COLOR</span>
-                      <span className="detail-value">{product.color}</span>
+                  <div className="product-info">
+                    <div className="product-category">{product.category}</div>
+                    <h3 className="product-name">{product.name}</h3>
+                    <div className="product-brand">
+                      <span className="brand-highlight">{product.brand}</span>
                     </div>
-                    <div className="detail-item">
-                      <span className="detail-label">SIZES</span>
-                      <div className="sizes">
-                        {product.sizes.map(size => (
-                          <span className="size-pill" key={size}>{size}</span>
-                        ))}
+                    <div className="price-rating">
+                      <div className="product-price">${product.price}</div>
+                      <div className="product-rating">
+                        <span className="rating-value">{product.rating}</span>
+                        {renderRating(product.rating)}
+                      </div>
+                    </div>
+                    <div className="product-details">
+                      <div className="detail-item">
+                        <span className="detail-label">COLOR</span>
+                        <span className="detail-value">{product.color}</span>
+                      </div>
+                      <div className="detail-item">
+                        <span className="detail-label">SIZES</span>
+                        <div className="sizes">
+                          {product.sizes.map(size => (
+                            <span className="size-pill" key={size}>{size}</span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
