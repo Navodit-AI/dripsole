@@ -4,6 +4,7 @@ import './ExplorePage.css';
 const ExplorePage = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     fetch("https://685e85517b57aebd2af9be39.mockapi.io/avi/v1/products")
@@ -18,16 +19,13 @@ const ExplorePage = () => {
       });
   }, []);
 
-  // Calculate stats
   const totalProducts = products.length;
   const brands = [...new Set(products.map((p) => p.brand))];
   const categories = [...new Set(products.map((p) => p.category))];
 
-  // Rating stars
   const renderRating = (rating) => {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.5;
-
     return (
       <div className="rating-stars">
         {[...Array(5)].map((_, i) => {
@@ -38,6 +36,13 @@ const ExplorePage = () => {
       </div>
     );
   };
+
+  // 🔍 Filter products based on search query
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    product.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    product.category.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div className="explore-page">
@@ -64,14 +69,25 @@ const ExplorePage = () => {
         <div className="page-title">
           <h2>Explore Collection</h2>
           <div className="divider"></div>
-          <div className="product-count">{totalProducts} items</div>
+          <div className="product-count">{filteredProducts.length} items</div>
+        </div>
+
+        {/* 🔎 Search Bar */}
+        <div className="search-bar-wrapper">
+          <input
+            type="text"
+            placeholder="Search by name, brand, or category..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="search-bar"
+          />
         </div>
 
         {loading ? (
           <div className="loading-message">Loading products...</div>
         ) : (
           <div className="product-grid">
-            {products.map(product => (
+            {filteredProducts.map(product => (
               <div
                 className={`product-card ${!product.inStock ? 'out-of-stock' : ''}`}
                 key={product.id}

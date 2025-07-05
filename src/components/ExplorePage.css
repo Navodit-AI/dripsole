@@ -363,3 +363,26 @@
       font-size: 20px;
     }
   }
+  .search-bar-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .search-bar {
+    padding: 10px 16px;
+    width: 60%;
+    max-width: 500px;
+    font-size: 1rem;
+    border: 2px solid #102542;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .search-bar:focus {
+    outline: none;
+    border-color: #F87060;
+    box-shadow: 0 0 0 3px rgba(248, 112, 96, 0.2);
+  }
+  
