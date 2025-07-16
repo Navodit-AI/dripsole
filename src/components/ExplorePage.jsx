@@ -92,6 +92,7 @@ const ExplorePage = () => {
             {filteredProducts.map(product => (
               <Link
                 to={`/product/${product.id}`}
+                state={{ product }}
                 className={`product-card-link`}
                 key={product.id}
               >

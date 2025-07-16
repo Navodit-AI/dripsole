@@ -1,38 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import './ProductDetailPage.css';
 
-
 const ProductDetailPage = () => {
-  const { id } = useParams();
-  const [product, setProduct] = useState(null);
+  const location = useLocation();
+  const product = location.state?.product;
 
-  useEffect(() => {
-    if (!id) {
-      console.error("No product ID found in URL");
-      return;
-    }
-  
-    fetch(`https://685e85517b57aebd2af9be39.mockapi.io/avi/v1/products/${id}`)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Product not found");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        console.log("Fetched product:", data);
-        setProduct(data);
-      })
-      .catch((err) => {
-        console.error("Error fetching product:", err);
-        setProduct(null); // Important to stop loading forever
-      });
-  }, [id]);
-  
-
-  if (product === null) return <div style={{ padding: "2rem", textAlign: "center" }}>Product not found or failed to load.</div>;
-
+  if (!product) {
+    return <div style={{ padding: "2rem", textAlign: "center" }}>Product not found or not passed correctly.</div>;
+  }
 
   return (
     <div className="product-detail">
