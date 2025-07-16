@@ -8,13 +8,31 @@ const ProductDetailPage = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
+    if (!id) {
+      console.error("No product ID found in URL");
+      return;
+    }
+  
     fetch(`https://685e85517b57aebd2af9be39.mockapi.io/avi/v1/products/${id}`)
-      .then(res => res.json())
-      .then(data => setProduct(data))
-      .catch(err => console.error("Product not found:", err));
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Product not found");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log("Fetched product:", data);
+        setProduct(data);
+      })
+      .catch((err) => {
+        console.error("Error fetching product:", err);
+        setProduct(null); // Important to stop loading forever
+      });
   }, [id]);
+  
 
-  if (!product) return <div>Loading product...</div>;
+  if (product === null) return <div style={{ padding: "2rem", textAlign: "center" }}>Product not found or failed to load.</div>;
+
 
   return (
     <div className="product-detail">

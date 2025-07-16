@@ -29,6 +29,7 @@ function App() {
         <Route path="/explore" element={<ExplorePage/>}/>
         <Route path="/product/:id" element={<ProductDetailPage />} />
 
+
       </Routes>
       <Footer/>
     </Router>

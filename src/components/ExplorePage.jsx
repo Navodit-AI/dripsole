@@ -11,6 +11,7 @@ const ExplorePage = () => {
     fetch("https://685e85517b57aebd2af9be39.mockapi.io/avi/v1/products")
       .then((res) => res.json())
       .then((data) => {
+        console.log("Fetched product IDs:", data.map(p => p.id)); // 🔍 log IDs
         setProducts(data);
         setLoading(false);
       })
@@ -19,6 +20,7 @@ const ExplorePage = () => {
         setLoading(false);
       });
   }, []);
+  
 
   const totalProducts = products.length;
   const brands = [...new Set(products.map((p) => p.brand))];
@@ -90,10 +92,10 @@ const ExplorePage = () => {
             {filteredProducts.map(product => (
               <Link
                 to={`/product/${product.id}`}
-                className={`product-card-link ${!product.inStock ? 'out-of-stock' : ''}`}
+                className={`product-card-link`}
                 key={product.id}
               >
-                <div className="product-card">
+                <div className={`product-card ${!product.inStock ? 'out-of-stock' : ''}`}>
                   <div className={`stock-badge ${product.inStock ? 'in-stock' : 'out-of-stock'}`}>
                     {product.inStock ? 'In Stock' : 'Out of Stock'}
                   </div>
