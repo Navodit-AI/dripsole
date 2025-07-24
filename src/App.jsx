@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ProductDetailPage from './components/ProductDetailPage';
+import CartPage from './components/CartPage';
+
 
 
 import reactLogo from './assets/react.svg'
@@ -28,6 +30,7 @@ function App() {
         }/>
         <Route path="/explore" element={<ExplorePage/>}/>
         <Route path="/product/:id" element={<ProductDetailPage />} />
+        <Route path="/cart" element={<CartPage />} />
 
 
       </Routes>

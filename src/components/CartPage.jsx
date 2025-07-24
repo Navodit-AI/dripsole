@@ -1,28 +1,34 @@
-// src/pages/CartPage.jsx
 import React from 'react';
-import './CartPage.css';
+import { useCart } from '../CartContext';
 
-const CartPage = ({ cartItems }) => {
-  const total = cartItems.reduce((sum, item) => sum + item.price, 0);
+const CartPage = () => {
+  const { cartItems, removeFromCart, updateQuantity } = useCart();
+
+  const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
-    <div className="cart-page">
+    <div style={{ padding: '2rem' }}>
       <h2>Your Cart</h2>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <div className="cart-items">
-          {cartItems.map((item, index) => (
-            <div key={index} className="cart-item">
-              <img src={item.image} alt={item.name} />
-              <div>
-                <h4>{item.name}</h4>
-                <p>${item.price}</p>
-              </div>
+        <>
+          {cartItems.map((item) => (
+            <div key={item.id} style={{ marginBottom: '1.5rem', borderBottom: '1px solid #ccc', paddingBottom: '1rem' }}>
+              <h3>{item.name}</h3>
+              <p>Price: ${item.price}</p>
+              <input
+                type="number"
+                value={item.quantity}
+                min={1}
+                onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
+              />
+              <button onClick={() => removeFromCart(item.id)}>Remove</button>
             </div>
           ))}
-          <div className="cart-total">Total: ${total.toFixed(2)}</div>
-        </div>
+          <h3>Total: ${total.toFixed(2)}</h3>
+          <button>Checkout</button>
+        </>
       )}
     </div>
   );

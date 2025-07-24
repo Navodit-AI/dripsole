@@ -1,6 +1,12 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './ProductDetailPage.css';
+import { useCart } from '../CartContext';
+
+const { addToCart } = useCart();
+
+<button onClick={() => addToCart(product)}>Add to Cart</button>
+
 
 const ProductDetailPage = () => {
   const location = useLocation();
