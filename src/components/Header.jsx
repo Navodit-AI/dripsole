@@ -17,7 +17,7 @@ const Header = () => {
       </nav>
 
       <div className="profile">
-        <input type="text" placeholder="Search kicks..." />
+        {/* 🔥 Removed the <input> box here */}
         <Link to="/cart" className="relative">
           🛒
           {totalItems > 0 && (
@@ -26,7 +26,7 @@ const Header = () => {
             </span>
           )}
         </Link>
-        <Link to="#">👤</Link>
+        <Link to="/login">👤</Link>
       </div>
     </header>
   );

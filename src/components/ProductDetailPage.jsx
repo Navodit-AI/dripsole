@@ -7,7 +7,7 @@ import './ProductDetailPage.css';
 const ProductDetailPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { addToCart, cartItems } = useCart();
+  const { addToCart, cartItems, clearCart } = useCart();
   const [showPayment, setShowPayment] = useState(false);
   const [showAddedMessage, setShowAddedMessage] = useState(false);
 
@@ -21,12 +21,14 @@ const ProductDetailPage = () => {
   };
 
   const handleBuyNow = () => {
-    addToCart(product);
-    setShowPayment(true);
+    clearCart(); // Clear existing cart items
+    addToCart(product); // Add only this product
+    setShowPayment(true); // Show payment immediately
   };
 
   const handlePaymentSuccess = () => {
     alert('Payment successful! Thank you for your purchase.');
+    clearCart();
     navigate('/');
   };
 

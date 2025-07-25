@@ -76,6 +76,7 @@
   align-items: center;
   gap: 16px;
   margin-top: 10px;
+  min-width: 220px;
 }
 
 .profile input {
