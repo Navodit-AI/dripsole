@@ -14,7 +14,7 @@ import Hero from './components/Hero'
 import Featured from './components/Featured'
 import Footer from './components/Footer'
 
-import ExplorePage from './components/Explorepage'
+import ExplorePage from './components/ExplorePage'
 
 function App() {
   const [count, setCount] = useState(0)
